@@ -8,6 +8,7 @@ This script is usable but I don't have time to do more test, and I have no plan 
 
 ## 1. Usage
 - Download `chromedriver` and put it into `./bin`
+- Install aria2
 - Run `pip install -r requirements.txt`
 - Run `edx-dl.py`, input user name, password, and course url (eg: `https://learning.edx.org/course/course-v1:CaltechX+BEM1105x+3T2020/home`)
 - Wait for a while
