@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import time
 from collections import OrderedDict
 import os
@@ -82,7 +84,7 @@ class EdxCourse(object):
         time.sleep(16)
 
     def format_title(self, title):
-        return title.replace("\n", "_").replace(" ", "_")
+        return title.replace("\n", "_").replace(" ", "_").replace("/", "|")
 
     def mkdir(self, path):
         if not os.path.exists(path):
@@ -177,6 +179,7 @@ class EdxCourse(object):
                 unit = self.driver.find_element_by_class_name("unit-container")
                 png = unit.screenshot_as_png
                 note = self.driver.find_element_by_tag_name("h1").text
+                note = self.format_title(note)
                 if "Slides for" in note:
                     self.driver.switch_to.frame("unit-iframe")
                     url = self.driver.find_element_by_partial_link_text(
